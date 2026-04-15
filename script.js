@@ -1,29 +1,25 @@
-function sendMessage(){
+const button = document.querySelector("button");
+const input = document.querySelector("input");
 
-let input = document.getElementById("userInput").value.toLowerCase();
-let chatbox = document.getElementById("chatbox");
+button.addEventListener("click", function () {
+    const userInput = input.value.toLowerCase();
+    let response = "";
 
-chatbox.innerHTML += "<p class='user'><b>You:</b> " + input + "</p>";
+    if (userInput.includes("hello") || userInput.includes("hi")) {
+        response = "Haan ji, bolo. Ride chahiye kya?";
+    } 
+    else if (userInput.includes("income") || userInput.includes("earning")) {
+        response = "Income fixed nahi hai. Din ka 800-1200 mil jata hai agar demand acchi ho.";
+    } 
+    else if (userInput.includes("uber") || userInput.includes("ola")) {
+        response = "Jahan commission kam hota hai, main wahan kaam karta hoon.";
+    } 
+    else if (userInput.includes("cancel") || userInput.includes("reject")) {
+        response = "Agar location ya distance sahi nahi lagta, toh ride reject kar deta hoon.";
+    } 
+    else {
+        response = "Samajh nahi aaya, thoda simple bolo.";
+    }
 
-let response = "I am not sure about that.";
-
-if(input.includes("motivation")){
-response = "I am motivated by flexible income and choosing platforms with lower commission.";
-}
-
-else if(input.includes("pain") || input.includes("problem")){
-response = "My biggest problems are high commission, rating systems, and unstable ride demand.";
-}
-
-else if(input.includes("need")){
-response = "I need a portable digital identity and fair reputation system across platforms.";
-}
-
-else if(input.includes("platform")){
-response = "I usually switch between Uber, Rapido, and InDrive depending on commission.";
-}
-
-chatbox.innerHTML += "<p class='bot'><b>Jass Singh:</b> " + response + "</p>";
-
-document.getElementById("userInput").value="";
-}
+    alert(response); // shows reply
+});
